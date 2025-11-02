@@ -5,39 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff90bbbb-b278-4058-bbfd-57d31cdb4917" name="Changes" comment="Hello Word !">
-      <change afterPath="$PROJECT_DIR$/.idea/SineSide-Learn.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/logo3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/logo4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/logoclair.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/logoclair2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/logodark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/logoviolet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/simulator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/storage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/game_screen.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/indicators.py" afterDir="false" />
+      <changelist_data name="ZZles" email="" automatic="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/profile_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SineSide-Learn.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SineSide-Learn.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/simulator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/storage.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/game_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/trading_screen.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
         <option value="ZZles" />
+        <option value="MAVAAX" />
+        <option value="deendossantos@gmail.com" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/ui/profile-screen.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 5
@@ -51,6 +53,10 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.game_screen.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.profile-screen.executor": "Run",
+    "Python.simulator.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "git-widget-placeholder": "master",
@@ -59,6 +65,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -77,7 +84,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1762036192813</updated>
-      <workItem from="1762036193410" duration="1127000" />
+      <workItem from="1762036193410" duration="30016000" />
     </task>
     <servers />
   </component>
@@ -110,5 +117,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Hello Word !" />
     <option name="LAST_COMMIT_MESSAGE" value="Hello Word !" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SineSide_Learn$simulator.coverage" NAME="simulator Coverage Results" MODIFIED="1762041681985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/core" />
+    <SUITE FILE_PATH="coverage/SineSide_Learn$profile_screen.coverage" NAME="profile-screen Coverage Results" MODIFIED="1762098822798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/ui" />
+    <SUITE FILE_PATH="coverage/SineSide_Learn$main.coverage" NAME="main Coverage Results" MODIFIED="1762104160772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SineSide_Learn$game_screen.coverage" NAME="game_screen Coverage Results" MODIFIED="1762048797661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/ui" />
   </component>
 </project>
