@@ -3,68 +3,72 @@ import math
 import time
 from dataclasses import dataclass
 
-
 @dataclass
 class Asset:
-    """Représente un actif simulé (ex: BTC, ETH, etc.)"""
     symbol: str
     name: str
     base_price: float
     volatility: float
 
-
 class MarketTick:
-    """Structure contenant les prix simulés à un instant t."""
-
     def __init__(self, timestamp, prices):
         self.timestamp = timestamp
         self.prices = prices
 
-
 class MarketSimulator:
-    """
-    Simule un marché avec des prix évoluant aléatoirement.
-    Utilisé par le jeu de trading pour afficher un graphique en temps réel.
-    """
-
-    def __init__(self, assets, profile="NORMAL"):
+    def __init__(self, assets, scenario_name="Tutoriel Facile"):
         self.assets = {asset.symbol: asset for asset in assets}
-        # Initialiser avec une base_price pour éviter les erreurs sur [-1]
         self.price_history = {asset.symbol: [asset.base_price] for asset in assets}
-        self.profile = profile
-        self.last_tick_time = time.time()
+        self.scenario_name = scenario_name
+        self.tick_count = 0
 
-    def _get_drift_factor(self):
-        """Définit la tendance générale selon le profil du marché."""
-        if self.profile == "VOLATILE":
-            return random.uniform(-0.05, 0.05)
-        elif self.profile == "BULLISH":
-            return random.uniform(0.0, 0.03)
-        elif self.profile == "BEARISH":
-            return random.uniform(-0.03, 0.0)
-        else:
-            return random.uniform(-0.01, 0.01)
+        self.trend = 0
+        self.volatility_multiplier = 1.0
+
+        self.setup_scenario()
+
+    def setup_scenario(self):
+        """Configure les paramètres du simulateur."""
+        if self.scenario_name == "Marché Haussier":
+            self.trend = random.uniform(0.0005, 0.001)
+            self.volatility_multiplier = 0.8
+
+        # --- DÉBOGAGE: Le Krach Soudain utilise temporairement les mêmes paramètres que le Tutoriel ---
+        elif self.scenario_name == "Krach Soudain":
+            self.trend = random.uniform(-0.0001, 0.0001) # Paramètres sûrs
+            self.volatility_multiplier = 0.5 # Paramètres sûrs
+
+        elif self.scenario_name == "Haute Volatilité":
+            self.trend = 0
+            self.volatility_multiplier = 2.5
+
+        else: # Tutoriel Facile
+            self.trend = random.uniform(-0.0001, 0.0001)
+            self.volatility_multiplier = 0.5
+
+    def _update_trend(self):
+        if self.scenario_name not in ["Marché Haussier", "Krach Soudain"]:
+             self.trend += random.uniform(-0.00005, 0.00005)
+             self.trend = max(-0.001, min(0.001, self.trend))
 
     def step(self):
-        """Fait avancer la simulation d’un ‘tick’ (nouvelle valeur de prix)."""
+        self.tick_count += 1
         now = time.time()
-        # Pas besoin d'elapsed time pour cette simulation simple
-        self.last_tick_time = now
-
         new_prices = {}
+
+        self._update_trend()
 
         for symbol, asset in self.assets.items():
             last_price = self.price_history[symbol][-1]
-            drift = self._get_drift_factor()
-            # Multiplier la volatilité par 0.1 pour la calmer un peu
-            noise = random.gauss(0, asset.volatility * 0.1)
+            
+            noise = random.gauss(0, asset.volatility * self.volatility_multiplier * 0.1)
+            
+            new_price = last_price * (1 + self.trend + noise)
 
-            # Formule de Mouvement Géométrique Brownien (simplifiée)
-            # Ajout d'une petite tendance au retour à la moyenne (vers base_price)
-            mean_reversion = (asset.base_price - last_price) * 0.001
-
-            new_price = last_price * (1 + drift + noise) + mean_reversion
-            new_price = max(0.1, new_price)  # Éviter les prix négatifs
+            mean_reversion = (asset.base_price - new_price) * 0.0005
+            new_price += mean_reversion
+            
+            new_price = max(0.1, new_price)
 
             new_prices[symbol] = new_price
             self.price_history[symbol].append(new_price)
@@ -72,11 +76,9 @@ class MarketSimulator:
         return MarketTick(timestamp=now, prices=new_prices)
 
     def get_history(self, symbol, n_points=100):
-        """Retourne les n derniers points de l’historique."""
         hist = self.price_history.get(symbol, [])
         return hist[-n_points:]
 
     def current_price(self, symbol):
-        """Retourne le prix actuel d’un actif."""
         hist = self.price_history.get(symbol, [])
         return hist[-1] if hist else None
